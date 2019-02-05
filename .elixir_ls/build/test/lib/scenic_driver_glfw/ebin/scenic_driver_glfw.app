@@ -1,0 +1,12 @@
+{application,scenic_driver_glfw,
+             [{applications,[kernel,stdlib,elixir,logger,elixir_make,scenic]},
+              {description,"Scenic.Driver.Glfw - Main Scenic driver for MacOs and Ubuntu\n"},
+              {modules,['Elixir.Scenic.Driver.Glfw',
+                        'Elixir.Scenic.Driver.Glfw.Cache',
+                        'Elixir.Scenic.Driver.Glfw.Compile',
+                        'Elixir.Scenic.Driver.Glfw.Font',
+                        'Elixir.Scenic.Driver.Glfw.Graph',
+                        'Elixir.Scenic.Driver.Glfw.Input',
+                        'Elixir.Scenic.Driver.Glfw.Port']},
+              {registered,[]},
+              {vsn,"0.9.1"}]}.

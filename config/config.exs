@@ -6,7 +6,7 @@ use Mix.Config
 config :elixir_snake, :viewport, %{
   name: :main_viewport,
   size: {700, 600},
-  default_scene: {ElixirSnake.Scene.Home, nil},
+  default_scene: {ElixirSnake.Scene.Game, nil},
   drivers: [
     %{
       module: Scenic.Driver.Glfw,
