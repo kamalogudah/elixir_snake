@@ -63,6 +63,30 @@ defmodule ElixirSnake.Scene.Game do
     {:noreply, %{state | frame_count: frame_count + 1}}
   end
 
+  # Keyboard controls
+  def handle_input({:key, {"left", :press, _}}, _context, state) do
+    {:noreply, update_snake_direction(state, {-1, 0})}
+  end
+
+  def handle_input({:key, {"right", :press, _}}, _context, state) do
+    {:noreply, update_snake_direction(state, {1, 0})}
+  end
+
+  def handle_input({:key, {"up", :press, _}}, _context, state) do
+    {:noreply, update_snake_direction(state, {0, -1})}
+  end
+
+  def handle_input({:key, {"down", :press, _}}, _context, state) do
+    {:noreply, update_snake_direction(state, {0, 1})}
+  end
+
+  def handle_input(_input, _context, state), do: {:noreply, state}
+
+  # Change the snake's current direction.
+  defp update_snake_direction(state, direction) do
+    put_in(state, [:objects, :snake, :direction], direction)
+  end
+
   # Move the snake to its next position according to the direction. Also limits the size.
   defp move_snake(%{objects: %{snake: snake}} = state) do
     [head | _] = snake.body
